@@ -1,15 +1,19 @@
 == Online failover rails
 
-=== Installation
+=== Installation : you may :
 
-* You may clone the repo, bundle install, and put your online token in /config/initalizers/online_token.rb
+* Clone the repo 
+* Execute 'bundle install'
+* Execute 'rails generate initializer' to create the config file
+* Put your online api token in /config/initalizers/online_token.rb
+* Execute 'rake db:migrate'
 * Then start the project : 'rails s' in development mode.
 * Once started, navigate the rails app root.
 
 === How to use
 
 * Click once on "Snapshot Online setup", this will import your servers and failovers locally.
-* Assign a backup server for each failover. You can also set a name to the failover to make it more human readable :)
+* Assign a backup server for each failover. You can also set a name to each server and/or failover to make it more human readable :)
 * You can now failover, only an app or a whole host.
 
 === TODO
