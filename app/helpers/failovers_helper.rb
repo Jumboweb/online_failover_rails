@@ -1,0 +1,2 @@
+module FailoversHelper
+end

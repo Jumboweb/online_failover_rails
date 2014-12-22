@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  servers: "Servers"
+  failovers: "Failovers"
+  snapshot_button: "Snapshot Online setup"
+  data_sync: "Data synchronization"
+
+  server:
+    placeholder_name: "Server name"
+    start: "Failover ALL @ %{host}"
+    save: "Save"
+
+  failover:
+    placeholder_name: "VM/App name"
+    master_server: "Master server"
+    backup_server: "Backup server"
+    save: "Save"
+    start: "Failover"
+    stop: "Failback"
+    placeholder_backup_server: "Please select backup to enable failover"

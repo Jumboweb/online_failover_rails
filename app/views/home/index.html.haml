@@ -1,0 +1,53 @@
+.row
+  .col-lg-12
+    %h2
+      =t :servers
+    -@servers.each do |server|
+      .row
+        = form_for server do |f|
+          .col-lg-3
+            = server.ip
+          .col-lg-3
+            = f.text_field :name, {placeholder: t('server.placeholder_name')}
+          .col-lg-4
+            = f.button t('server.save'), {class: "btn btn-success", name:"save"}
+            -if server.startable?
+              = f.button t('server.start', host: server.name), {class: "btn btn-danger", name: "start"}
+
+
+
+.row
+  .col-lg-12
+    %h2
+      =t :failovers
+    -@failovers.each do |failover|
+      .row
+        = form_for failover do |f|
+          .col-lg-2
+            = failover.ip
+          .col-lg-8
+            = f.text_field :name, {placeholder: t('failover.placeholder_name')}
+            /= f.text_field :state
+            = f.select :master_server_id,
+              failover.available_servers(:master).collect { |s| [ "#{s.name}-#{s.ip}", s.id ] },
+              {},{disabled: failover.stoppable?}
+            = f.select :backup_server_id,
+              failover.available_servers(:backup).collect { |s| [ "#{s.name}-#{s.ip}", s.id ] },
+              {include_blank: t('failover.placeholder_backup_server')},
+              {disabled: failover.stoppable?}
+
+          .col-lg-2
+            = f.button t('server.save'), {class: "btn btn-success", name: "save"}
+            -if failover.startable?
+              = f.button t('failover.start'), {class: "btn btn-danger", name: "start"}
+            -if failover.stoppable?
+              = f.button t('failover.stop'), {class: "btn btn-warning", name: "stop"}
+
+.row
+  .col-lg-12
+    %h2
+      =t :data_sync
+    .row
+      .col-lg-2
+        = form_tag home_snapshot_path, :method => "post" do
+          = submit_tag t(:snapshot_button)

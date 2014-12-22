@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_online: 
+  master_server_id: 
+  backup_server_id: 
+
+two:
+  id_online: 
+  master_server_id: 
+  backup_server_id: 
