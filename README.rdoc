@@ -1,28 +1,21 @@
-== README
+== Online failover rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Installation
 
-Things you may want to cover:
+* You may clone the repo, bundle install, and put your online token in /config/initalizers/online_token.rb
+* Then start the project : 'rails s' in development mode.
+* Once started, navigate the rails app root.
 
-* Ruby version
+=== How to use
 
-* System dependencies
+* Click once on "Snapshot Online setup", this will import your servers and failovers locally.
+* Assign a backup server for each failover. You can also set a name to the failover to make it more human readable :)
+* You can now failover, only an app or a whole host.
 
-* Configuration
+=== TODO
 
-* Database creation
+* Write some tests
+* Handle errors in a better way
+* Translate to french
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Author : Slash4 from Jumboweb
