@@ -1,6 +1,15 @@
 == Online failover rails
+=== Why ?
+Online has a pretty interface to manage failovers, but not really handy when it comes to manage an entire host, or many 
+guests on a heavy-loaded host. In the heat of the moment, it's hard to remember which ip has to be switched, and to which host. 
+With this tool, you can name your servers and failovers, and configure in advance your preferred backup server for each guest. 
 
-=== Installation : you may :
+After this (very) little configuration, you are ready to failover your guests or an entire host, with one button, and failback 
+when the "master" host is operational again.
+
+This app is intented to be installed locally, so there's no authentication system yet.
+
+=== Installation - you may :
 
 * Clone the repo 
 * Execute 'bundle install'
@@ -18,8 +27,10 @@
 
 === TODO
 
+* Add an authentication system (devise ?)
 * Write some tests
 * Handle errors in a better way
-* Translate to french
+* Do some translations
+* Use OAuth instead of API token
 
 Author : Slash4 from Jumboweb
