@@ -51,7 +51,7 @@ class Failover < ActiveRecord::Base
       Failover.where(ip: f["source"]).first_or_create(
         ip: f["source"],
         master_server_id: Server.find_by_ip(f["destination"]).id,
-        status: 0
+        state: 0
       )
 
     end
