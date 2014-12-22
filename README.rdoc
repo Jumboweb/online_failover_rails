@@ -1,6 +1,6 @@
 == Online failover rails
 === Why ?
-Online has a pretty interface to manage failovers, but not really handy when it comes to manage an entire host, or many 
+Online.net, our hosting provider, has a pretty interface to manage failovers, but not really handy when it comes to manage an entire host, or many 
 guests on a heavy-loaded host. In the heat of the moment, it's hard to remember which ip has to be switched, and to which host. 
 With this tool, you can name your servers and failovers, and configure in advance your preferred backup server for each guest. 
 
@@ -32,5 +32,6 @@ This app is intented to be installed locally, so there's no authentication syste
 * Handle errors in a better way
 * Do some translations
 * Use OAuth instead of API token
+* Make the Snapshot button refresh the local failovers (if switch was made directly on online.net console)
 
 Author : Slash4 from Jumboweb
