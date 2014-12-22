@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+config/initializers/online_token.rb #don't commit this !
