@@ -36,7 +36,8 @@ gem "haml-rails"
 gem "twitter-bootstrap-rails"
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+gem 'capistrano', '~> 2.15.5'
+gem 'rvm-capistrano'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
