@@ -17,3 +17,6 @@
 /tmp
 
 /config/initializers/online_token.rb
+/config/deploy*
+/lib/capistrano/*
+Capfile
