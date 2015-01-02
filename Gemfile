@@ -37,7 +37,9 @@ gem "twitter-bootstrap-rails"
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2.15.5'
+gem 'net-ssh', '~>2.7.0'
 gem 'rvm-capistrano'
+#gem 'net-ssh', '2.9.2-beta'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
