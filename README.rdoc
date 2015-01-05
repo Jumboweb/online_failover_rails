@@ -1,19 +1,22 @@
 == Online failover rails
 === Why ?
-Online.net, our hosting provider, has a pretty interface to manage failovers, but not really handy when it comes to manage an entire host, or many 
-guests on a heavy-loaded host. In the heat of the moment, it's hard to remember which ip has to be switched, and to which host. 
-With this tool, you can name your servers and failovers, and configure in advance your preferred backup server for each guest. 
+Online.net, our hosting provider, has a pretty interface to manage failovers, but not really handy when it comes to manage an entire host, or many
+guests on a heavy-loaded host. In the heat of the moment, it's hard to remember which ip has to be switched, and to which host.
+With this tool, you can name your servers and failovers, and configure in advance your preferred backup server for each guest.
 
-After this (very) little configuration, you are ready to failover your guests or an entire host, with one button, and failback 
+After this (very) little configuration, you are ready to failover your guests or an entire host, with one button, and failback
 when the "master" host is operational again.
+
+Recent add : you can now add uri to be tested roughly (nmap + netcat on 80 and 443) to check whether your services are up or not.
+To do that, simply click on a failover (IP) and add your services with ports (usually 80, 443, 25, 21, 22).
 
 This app is intented to be installed locally, so there's no authentication system yet.
 
 === Installation - you may :
 
-* Clone the repo 
+* Clone the repo
 * Execute 'bundle install'
-* Execute 'rails generate initializer' to create the config file
+* Execute 'rails generate initializer' to create the config files
 * Put your online api token in /config/initalizers/online_token.rb
 * Execute 'rake db:migrate'
 * Then start the project : 'rails s' in development mode.
@@ -24,6 +27,9 @@ This app is intented to be installed locally, so there's no authentication syste
 * Click once on "Snapshot Online setup", this will import your servers and failovers locally.
 * Assign a backup server for each failover. You can also set a name to each server and/or failover to make it more human readable :)
 * You can now failover, only an app or a whole host.
+* By clicking the IP, you can add some services to test.
+* Execute 'RAILS_ENV=production bin/rake pinger:test_all' or add it to crontab to test your services and report their state in web interface.
+* You can alter /config/initalizers/event_bus.rb to trigger some events when a service fails (SMS or email alert, ssh commands...) 
 
 === TODO
 
