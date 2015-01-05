@@ -2,6 +2,7 @@ class AddressesController < ApplicationController
 
   def create
     a = Address.new(address_params)
+    a.failed_ping = 0
     a.save!
     redirect_to :back
   end
@@ -9,6 +10,7 @@ class AddressesController < ApplicationController
   def update
     a = Address.find(params[:id])
     a.update_attributes(address_params)
+    a.failed_ping = 0
     a.save!
     redirect_to :back
   end
