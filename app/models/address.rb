@@ -10,7 +10,7 @@ class Address < ActiveRecord::Base
     website_up = true
 
     if(server_up && ([80, 443].include? self.port))
-      website_up = (`curl -silent -IL #{address}:#{port} | grep 'Status: 200 OK' | wc -l`.to_i > 0)
+      website_up = (`curl -silent -IL #{address}:#{port} | grep 'Status: 200' | wc -l`.to_i > 0)
     end
 
     if(website_up && server_up)
