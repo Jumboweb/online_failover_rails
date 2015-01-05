@@ -28,6 +28,7 @@ class Address < ActiveRecord::Base
       #   //...
       # end
       #for further information please see https://github.com/kevinrutherford/event_bus
+      #a template exists in the initalizers folder
       EventBus.announce(:service_failed, address: self)
     end
 
