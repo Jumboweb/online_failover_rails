@@ -38,3 +38,12 @@ en:
     start: "Failover"
     stop: "Failback"
     placeholder_backup_server: "Please select backup to enable failover"
+    failed: "!"
+    up: "OK"
+
+  address:
+    failed: "Last check failed !"
+    up: "OK"
+    placeholder_address: "Any URL hosted @ %{host}"
+    placeholder_port: "Port"
+    save: "Save"

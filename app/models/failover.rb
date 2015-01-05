@@ -1,6 +1,13 @@
 class Failover < ActiveRecord::Base
   belongs_to :master_server, :class_name => "Server", :foreign_key => "master_server_id"
   belongs_to :backup_server, :class_name => "Server", :foreign_key => "backup_server_id"
+  has_many :addresses
+
+  def has_failed?
+    self.addresses.any? do |a|
+      a.has_failed?
+    end
+  end
 
   def startable?
     !backup_server_id.nil? && state == 0

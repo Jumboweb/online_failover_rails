@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222151322) do
+ActiveRecord::Schema.define(version: 20150102094705) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "port"
+    t.integer  "failed_ping"
+    t.integer  "failover_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "addresses", ["failover_id"], name: "index_addresses_on_failover_id"
 
   create_table "failovers", force: :cascade do |t|
     t.string   "ip"

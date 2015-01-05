@@ -39,6 +39,7 @@ gem "twitter-bootstrap-rails"
 gem 'capistrano', '~> 2.15.5'
 gem 'net-ssh', '~>2.7.0'
 gem 'rvm-capistrano'
+gem 'event_bus'
 #gem 'net-ssh', '2.9.2-beta'
 
 group :development, :test do

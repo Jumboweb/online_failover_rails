@@ -1,3 +1,26 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.failovers{
+  padding:5px;
+  /*background-color:#d9f0fc;*/
+  margin: 5px 15px 5px 15px;
+  border:1px solid #b6b3b3;
+
+  .ip{
+    cursor:pointer;
+    text-decoration:underline;
+  }
+
+  .addresses{
+    padding:5px;
+    background-color:#EAEAEA;
+    margin: 5px 15px 5px 15px;
+    display:none;
+  }
+  .port{
+    width:40px;
+  }
+}

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   match 'home/snapshot'=> 'home#snapshot', via: [:post]
   resources :failovers
-  resources :servers 
+  resources :servers
+  resources :addresses 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
