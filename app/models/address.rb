@@ -17,7 +17,7 @@ class Address < ActiveRecord::Base
     if(server_up && ([80, 443].include? self.port) )
       unless self.address.nil?
         address = self.address.include?("/") ? self.address :  self.address+"/"
-        website_up = (`curl -silent -iL --max-time 10 #{address.sub("/",":#{port}/")} | head -n1 | grep ' 200 OK' | wc -l`.to_i > 0)
+        website_up = (`curl -silent -iL --max-time 10 #{address.sub("/",":#{port}/")} | head -n1 | egrep ' 200 OK| 302| 304' | wc -l`.to_i > 0)
       end
     end
 
