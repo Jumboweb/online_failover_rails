@@ -6,7 +6,12 @@ class Address < ActiveRecord::Base
   end
 
   def test
-    server_up = (`nmap #{address} -p #{port} -n | grep open | wc -l`.to_i > 0)
+    rootUrl = address
+    if rootUrl.include? "/"
+      rootUrl = rootUrl.split('/')[0]
+    end
+
+    server_up = (`nmap #{rootUrl} -p #{port} -n | grep open | wc -l`.to_i > 0)
     website_up = true
 
     if(server_up && ([80, 443].include? self.port))
