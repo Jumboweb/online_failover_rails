@@ -6,7 +6,7 @@ class Address < ActiveRecord::Base
   end
 
   def test
-    rootUrl = address
+    rootUrl = self.address
     if rootUrl.include? "/"
       rootUrl = rootUrl.split('/')[0]
     end
@@ -15,8 +15,8 @@ class Address < ActiveRecord::Base
     website_up = true
 
     if(server_up && ([80, 443].include? self.port) )
-      unless address.nil?
-        address = address.include?("/") ? address :  address+"/"
+      unless self.address.nil?
+        address = self.address.include?("/") ? self.address :  self.address+"/"
         website_up = (`curl -silent -iL --max-time 10 #{address.sub("/",":#{port}/")} | head -n1 | grep ' 200 OK' | wc -l`.to_i > 0)
       end
     end
