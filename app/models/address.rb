@@ -14,9 +14,11 @@ class Address < ActiveRecord::Base
     server_up = (`nmap #{rootUrl} -p #{port} -n | grep open | wc -l`.to_i > 0)
     website_up = true
 
-    if(server_up && ([80, 443].include? self.port) && !address.nil?)
-      address = address.include?("/") ? address :  address+"/"
-      website_up = (`curl -silent -iL --max-time 10 #{address.sub("/",":#{port}/")} | head -n1 | grep ' 200 OK' | wc -l`.to_i > 0)
+    if(server_up && ([80, 443].include? self.port) )
+      unless address.nil?
+        address = address.include?("/") ? address :  address+"/"
+        website_up = (`curl -silent -iL --max-time 10 #{address.sub("/",":#{port}/")} | head -n1 | grep ' 200 OK' | wc -l`.to_i > 0)
+      end
     end
 
     if(website_up && server_up)
