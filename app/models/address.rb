@@ -6,7 +6,7 @@ class Address < ActiveRecord::Base
   end
 
   def test
-    server_up = (`nmap #{address} -p #{port} | grep open | wc -l`.to_i > 0)
+    server_up = (`nmap #{address} -p #{port} -n | grep open | wc -l`.to_i > 0)
     website_up = true
 
     if(server_up && ([80, 443].include? self.port))
